@@ -88,12 +88,10 @@ def lambda_handler(event, context):
         convertCSV(logs['Datapoints'])
         sortCSV()
 
-        #適当なフォルダ名/ファイル名を生成して、s３へアップ
+        #適当なフォルダ名/ファイル名を生成して、s3へアップ
         uploadToS3(generateFileName(target))
 
     return {
         'statusCode': 200,
         'body': json.dumps('finish lambda')
     }
-
-lambda_handler(0,0)
